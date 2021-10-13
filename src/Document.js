@@ -1,14 +1,16 @@
 
 
 
+
 export default function Document(props){
-    
-    return( 
-    <>
+
+    return (
+      <>
       <h1 className="title" value={"Terms and Conditions"}>Terms and Conditions</h1>
-      <div className="content" >{props.content}</div>
+      <div className="content" >{props.txt}</div>
       <button disabled="true">I Agree</button>
       </>
-      );
+    )
+    
       
 }

@@ -1,16 +1,23 @@
-import  Document  from "./Document.js";
+import  Document  from "./Document";
 import "./App.css";
 import { useEffect, useState } from "react";
 
 function App() {
   const [text, setText] = useState('');
      useEffect(() => {
+       const abortCtrl = new AbortController();
+       
       fetch("https://jaspervdj.be/lorem-markdownum/markdown.txt")
       .then(res => res.text())
       .then(data => {
-          setText(data);
-      });
-  })
+          setText(data.split('(')[1]);
+      })
+      return () => abortCtrl.abort();
+    }, []);
+      
+  
+  
+  
   
   return (
     <div className="App">
@@ -22,13 +29,13 @@ function App() {
       </section>
       <div class="container is-fullhd">
         <div class="notification">
-          <Document props={text}/>
-           
+          <Document txt={text} />
+          
           {/* Edit the <code>./src</code> folder to add components. */}
-        </div>
+         </div>
       </div>
     </div>
   );
-}
+  }
 
 export default App;
