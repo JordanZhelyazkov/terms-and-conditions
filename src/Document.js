@@ -1,13 +1,14 @@
 
 
 
-export default function Document(title, content){
+export default function Document(props){
     
     return( 
-    <div>
-      <h1 className="title" value={"Terms and Conditions"}>{title.props}</h1>
-      <p className="content" value={content}>{content.prop}</p>
-      </div> 
+    <>
+      <h1 className="title" value={"Terms and Conditions"}>Terms and Conditions</h1>
+      <div className="content" >{props.content}</div>
+      <button disabled="true">I Agree</button>
+      </>
       );
       
 }

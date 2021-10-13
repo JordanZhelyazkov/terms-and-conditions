@@ -9,7 +9,7 @@ function App() {
       .then(res => res.text())
       .then(data => {
           setText(data);
-      }, [text]);
+      });
   })
   
   return (
@@ -22,11 +22,9 @@ function App() {
       </section>
       <div class="container is-fullhd">
         <div class="notification">
-          <div className="content">
-          <Document prop={text}/>
-           <button disabled="true">I Agree</button>
-          </div>
-          Edit the <code>./src</code> folder to add components.
+          <Document props={text}/>
+           
+          {/* Edit the <code>./src</code> folder to add components. */}
         </div>
       </div>
     </div>
